@@ -9,7 +9,7 @@
 
     <li>
 
-        <a href="{{route('home', $comic -> id) }}">
+        <a href="{{route('show', $comic -> id) }}">
             Titolo: {{$comic -> title}} -  Autore: {{$comic -> author}}
 
         </a>

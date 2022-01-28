@@ -1,6 +1,11 @@
 * {
   background-color: aqua;
   text-align: center;
+  color: red;
+}
+
+h1,
+h2 {
   color: black;
 }
 
