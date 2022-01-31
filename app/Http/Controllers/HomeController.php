@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Comic;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class HomeController extends Controller
 {
@@ -18,5 +19,26 @@ class HomeController extends Controller
 
         $comic = Comic:: findOrFail($id);
         return view('pages.show', compact('comic'));
+    }
+
+    public function create(){
+        return view('pages.create');
+    }
+
+    public function store(Request $request){
+        $data = $request -> validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'pages'=> 'Required',
+            'release_date' => 'required|date'
+        ]);
+
+        $movie = Comic::create($data);
+
+        return redirect() -> route('home');
+    }
+
+    public function edit(){
+        return view('pages.edit');
     }
 }
